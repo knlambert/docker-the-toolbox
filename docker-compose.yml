@@ -1,0 +1,20 @@
+version: '2'
+services:
+  the-toolbox-app:
+    build: 
+      context: the-toolbox-app/
+      args:
+        TOOLBOX_VERSION: "2.2.7"
+    network_mode: host
+    ports:
+    - "80:80"
+  the-toolbox-db:
+    build: 
+      context: the-toolbox-db/
+      args:
+        TOOLBOX_VERSION: "2.2.7"
+        MYSQL_ROOT_PASSWORD: localroot1234
+        
+    network_mode: host
+    ports:
+    - "3306:3306"
